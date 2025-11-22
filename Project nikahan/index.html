@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="assets/css/cover_style.css" />
   </head>
   <body>
+    <audio id="myAudio" loop>
+  <source src="assets/music/musik.mp3" type="audio/mpeg" />
+    </audio>
     <section id="sectionKecil">
       <div class="cover" id="cover">
         <img
@@ -28,4 +31,15 @@
     </section>
   </body>
   <script src="assets/js/script.js"></script>
+  <script>
+  document.getElementById("open").addEventListener("click", function () {
+    const audio = document.getElementById("myAudio");
+
+    // Safari membutuhkan user gesture agar audio bisa play
+    audio.play().catch(err => {
+      console.log("Audio gagal autoplay, harus user gesture:", err);
+    });
+  });
+</script>
 </html>
+
